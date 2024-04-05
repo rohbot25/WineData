@@ -1,0 +1,15 @@
+
+import pandas as pd
+
+whiteData = pd.read_csv('winequality-white.csv',delimiter=';')
+redData = pd.read_csv('winequality-red.csv',delimiter=';')
+
+#%% standardize red 
+redData['residual sugar']=(redData['residual sugar'] - redData['residual sugar'].mean()) / redData['residual sugar'].std() 
+redData['free sulfur dioxide']=(redData['free sulfur dioxide'] - redData['free sulfur dioxide'].mean()) / redData['free sulfur dioxide'].std() 
+redData['total sulfur dioxide']=(redData['total sulfur dioxide'] - redData['total sulfur dioxide'].mean()) / redData['total sulfur dioxide'].std() 
+
+#%%std white 
+whiteData['residual sugar']=(whiteData['residual sugar'] - whiteData['residual sugar'].mean()) / whiteData['residual sugar'].std() 
+whiteData['free sulfur dioxide']=(whiteData['free sulfur dioxide'] - whiteData['free sulfur dioxide'].mean()) / whiteData['free sulfur dioxide'].std() 
+whiteData['total sulfur dioxide']=(whiteData['total sulfur dioxide'] - whiteData['total sulfur dioxide'].mean()) / whiteData['total sulfur dioxide'].std() 
